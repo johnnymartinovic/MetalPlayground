@@ -1,9 +1,14 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 
 
+## User settings
+xcuserdata/
 
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
 
 
 
