@@ -1,7 +1,7 @@
 import UIKit
 import Metal
 
-class ViewController: UIViewController {
+class TriangleVC: UIViewController {
     
     var device: MTLDevice!
     
