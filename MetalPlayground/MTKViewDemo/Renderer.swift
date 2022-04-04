@@ -8,26 +8,36 @@ class Renderer: NSObject {
     let pipelineState: MTLRenderPipelineState
     
     let positionArray: [SIMD4<Float>] = [
-        SIMD4<Float>(-0.5, -0.2, 0, 1),
-        SIMD4<Float>(0.2, -0.2, 0, 1),
-        SIMD4<Float>(0, 0.5, 0, 1),
-        SIMD4<Float>(0, 0.5, 0, 1),
-        SIMD4<Float>(0.2, -0.2, 0, 1),
-        SIMD4<Float>(0.7, 0.7, 0, 1)
+        SIMD4<Float>(-0.9, -0.5, 0, 1),
+        SIMD4<Float>(-0.6, 0.5, 0, 1),
+        SIMD4<Float>(-0.3, -0.5, 0, 1),
+        SIMD4<Float>(0.0, 0.5, 0, 1),
+        SIMD4<Float>(0.3, -0.5, 0, 1),
+        SIMD4<Float>(0.6, 0.5, 0, 1),
+        SIMD4<Float>(0.9, -0.5, 0, 1),
     ]
     
     let colorArray: [SIMD3<Float>] = [
         SIMD3<Float>(1, 0, 0),
         SIMD3<Float>(0, 1, 0),
         SIMD3<Float>(0, 0, 1),
-        SIMD3<Float>(0, 0, 1),
-        SIMD3<Float>(0, 1, 0),
-        SIMD3<Float>(1, 0, 1)
+        SIMD3<Float>(1, 0, 1),
+        SIMD3<Float>(0, 1, 1),
+        SIMD3<Float>(1, 1, 0),
+        SIMD3<Float>(1, 1, 1),
+    ]
+    
+    let indexArray: [UInt16] = [
+      0, 1, 2,
+      1, 2, 3,
+      2, 4, 3,
+      3, 4, 5,
+      4, 6, 5,
     ]
     
     let positionBuffer: MTLBuffer
     let colorBuffer: MTLBuffer
-    var timer: Float = 0
+    let indexBuffer: MTLBuffer
     
     init(view: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),
@@ -43,6 +53,8 @@ class Renderer: NSObject {
         positionBuffer = device.makeBuffer(bytes: positionArray, length: positionLength, options: [])!
         let colorLength = MemoryLayout<SIMD3<Float>>.stride * colorArray.count
         colorBuffer = device.makeBuffer(bytes: colorArray, length: colorLength, options: [])!
+        let indexBufferLength = MemoryLayout<UInt16>.stride * indexArray.count
+        indexBuffer = device.makeBuffer(bytes: indexArray, length: indexBufferLength, options: [])!
         
         super.init()
     }
@@ -80,16 +92,14 @@ extension Renderer: MTKViewDelegate {
         commandEncoder.setVertexBuffer(positionBuffer, offset: 0, index: 0)
         commandEncoder.setVertexBuffer(colorBuffer, offset: 0, index: 1)
         
-        timer += 0.05
-        var currentTime = sin(timer)
-        commandEncoder.setVertexBytes(&currentTime,
-                                      length: MemoryLayout<Float>.stride,
-                                      index: 2)
-        
         // draw call
-        commandEncoder.drawPrimitives(type: .triangle,
-                                      vertexStart: 0,
-                                      vertexCount: 6)
+        commandEncoder.drawIndexedPrimitives(
+            type: .triangle,
+            indexCount: indexArray.count,
+            indexType: .uint16,
+            indexBuffer: indexBuffer,
+            indexBufferOffset: 0)
+        
         commandEncoder.endEncoding()
         
         commandBuffer.present(drawable)
