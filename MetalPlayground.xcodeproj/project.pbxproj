@@ -15,6 +15,9 @@
 		AFE3D29427FAF9A0000C76E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29327FAF9A0000C76E0 /* Shaders.metal */; };
 		AFE3D29727FB0770000C76E0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29627FB0770000C76E0 /* MainVC.swift */; };
 		AFE3D29A27FB0D3B000C76E0 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29927FB0D3B000C76E0 /* General.swift */; };
+		AFE3D29C27FB2101000C76E0 /* MTKViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */; };
+		AFE3D29F27FB2CFA000C76E0 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */; };
+		AFE3D2A127FB38B5000C76E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D2A027FB38B5000C76E0 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		AFE3D29327FAF9A0000C76E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		AFE3D29627FB0770000C76E0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		AFE3D29927FB0D3B000C76E0 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewDemo.swift; sourceTree = "<group>"; };
+		AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		AFE3D2A027FB38B5000C76E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 		AFE3D27E27FAF408000C76E0 /* MetalPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				AFE3D29D27FB210C000C76E0 /* MTKViewDemo */,
 				AFE3D29827FB0D2D000C76E0 /* Utils */,
 				AFE3D29527FB070F000C76E0 /* TriangleDemo */,
 				AFE3D27F27FAF408000C76E0 /* AppDelegate.swift */,
@@ -87,6 +94,16 @@
 				AFE3D29927FB0D3B000C76E0 /* General.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AFE3D29D27FB210C000C76E0 /* MTKViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */,
+				AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */,
+				AFE3D2A027FB38B5000C76E0 /* Shaders.metal */,
+			);
+			path = MTKViewDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,10 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE3D29F27FB2CFA000C76E0 /* Renderer.swift in Sources */,
 				AFE3D29A27FB0D3B000C76E0 /* General.swift in Sources */,
 				AFE3D29427FAF9A0000C76E0 /* Shaders.metal in Sources */,
+				AFE3D29C27FB2101000C76E0 /* MTKViewDemo.swift in Sources */,
 				AFE3D29727FB0770000C76E0 /* MainVC.swift in Sources */,
 				AFE3D28427FAF408000C76E0 /* TriangleVC.swift in Sources */,
+				AFE3D2A127FB38B5000C76E0 /* Shaders.metal in Sources */,
 				AFE3D28027FAF408000C76E0 /* AppDelegate.swift in Sources */,
 				AFE3D28227FAF408000C76E0 /* SceneDelegate.swift in Sources */,
 			);
