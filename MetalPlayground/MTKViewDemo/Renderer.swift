@@ -7,24 +7,14 @@ class Renderer: NSObject {
     static var library: MTLLibrary!
     let pipelineState: MTLRenderPipelineState
     
-    let positionArray: [SIMD4<Float>] = [
-        SIMD4<Float>(-0.9, -0.5, 0, 1),
-        SIMD4<Float>(-0.6, 0.5, 0, 1),
-        SIMD4<Float>(-0.3, -0.5, 0, 1),
-        SIMD4<Float>(0.0, 0.5, 0, 1),
-        SIMD4<Float>(0.3, -0.5, 0, 1),
-        SIMD4<Float>(0.6, 0.5, 0, 1),
-        SIMD4<Float>(0.9, -0.5, 0, 1),
-    ]
-    
-    let colorArray: [SIMD3<Float>] = [
-        SIMD3<Float>(1, 0, 0),
-        SIMD3<Float>(0, 1, 0),
-        SIMD3<Float>(0, 0, 1),
-        SIMD3<Float>(1, 0, 1),
-        SIMD3<Float>(0, 1, 1),
-        SIMD3<Float>(1, 1, 0),
-        SIMD3<Float>(1, 1, 1),
+    let vertices: [Vertex] = [
+      Vertex(position: SIMD3<Float>(-0.9, -0.5, 0), color: SIMD3<Float>(1, 0, 0)),
+      Vertex(position: SIMD3<Float>(-0.6, 0.5, 0), color: SIMD3<Float>(0, 1, 0)),
+      Vertex(position: SIMD3<Float>(-0.3, -0.5, 0), color: SIMD3<Float>(0, 0, 1)),
+      Vertex(position: SIMD3<Float>(0.0, 0.5, 0), color: SIMD3<Float>(1, 0, 1)),
+      Vertex(position: SIMD3<Float>(0.3, -0.5, 0), color: SIMD3<Float>(0, 1, 1)),
+      Vertex(position: SIMD3<Float>(0.6, 0.5, 0), color: SIMD3<Float>(1, 1, 0)),
+      Vertex(position: SIMD3<Float>(0.9, -0.5, 0), color: SIMD3<Float>(1, 1, 1))
     ]
     
     let indexArray: [UInt16] = [
@@ -35,8 +25,7 @@ class Renderer: NSObject {
       4, 6, 5,
     ]
     
-    let positionBuffer: MTLBuffer
-    let colorBuffer: MTLBuffer
+    let vertexBuffer: MTLBuffer
     let indexBuffer: MTLBuffer
     
     init(view: MTKView) {
@@ -49,10 +38,8 @@ class Renderer: NSObject {
         Renderer.library = device.makeDefaultLibrary()!
         pipelineState = Renderer.createPipelineState()
         
-        let positionLength = MemoryLayout<SIMD4<Float>>.stride * positionArray.count
-        positionBuffer = device.makeBuffer(bytes: positionArray, length: positionLength, options: [])!
-        let colorLength = MemoryLayout<SIMD3<Float>>.stride * colorArray.count
-        colorBuffer = device.makeBuffer(bytes: colorArray, length: colorLength, options: [])!
+        let vertextBufferLength = MemoryLayout<Vertex>.stride * vertices.count
+        vertexBuffer = device.makeBuffer(bytes: vertices, length: vertextBufferLength, options: [])!
         let indexBufferLength = MemoryLayout<UInt16>.stride * indexArray.count
         indexBuffer = device.makeBuffer(bytes: indexArray, length: indexBufferLength, options: [])!
         
@@ -89,8 +76,7 @@ extension Renderer: MTKViewDelegate {
         
         commandEncoder.setRenderPipelineState(pipelineState)
         
-        commandEncoder.setVertexBuffer(positionBuffer, offset: 0, index: 0)
-        commandEncoder.setVertexBuffer(colorBuffer, offset: 0, index: 1)
+        commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         
         // draw call
         commandEncoder.drawIndexedPrimitives(

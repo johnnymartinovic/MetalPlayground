@@ -19,19 +19,22 @@ constant float3 color[6] = {
 };
  */
 
-struct VertexOut {
-    float4 position [[position]];
-    float point_size [[point_size]];
+struct VertexIn {
+    float3 position;
     float3 color;
 };
 
-vertex VertexOut vertex_main(device const float4 *positionBuffer [[buffer(0)]],
-                             device const float3 *colorBuffer [[buffer(1)]],
+struct VertexOut {
+    float4 position [[position]];
+    float3 color;
+};
+
+vertex VertexOut vertex_main(device const VertexIn *vertexBuffer [[buffer(0)]],
                              uint vertexId [[vertex_id]]) {
   
   VertexOut out {
-    .position = positionBuffer[vertexId],
-    .color = colorBuffer[vertexId]
+    .position = float4(vertexBuffer[vertexId].position, 1),
+    .color = vertexBuffer[vertexId].color
   };
   return out;
 }
