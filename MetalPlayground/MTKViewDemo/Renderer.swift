@@ -55,6 +55,7 @@ class Renderer: NSObject {
         let fragmentFunction = Renderer.library.makeFunction(name: "fragment_main")
         pipelineStateDescriptor.vertexFunction = vertexFunction
         pipelineStateDescriptor.fragmentFunction = fragmentFunction
+        pipelineStateDescriptor.vertexDescriptor = MTLVertexDescriptor.defaultVertexDescriptor()
         
         return try! Renderer.device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
     }
