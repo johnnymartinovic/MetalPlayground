@@ -44,6 +44,7 @@ class MainVC: UIViewController {
     }
     
     private func setupMainViews() {
+        title = "Metal Playground"
         view.backgroundColor = UIColor(rgb: 0xF1F5F8)
         
         view.addSubview(scrollView)
@@ -93,8 +94,6 @@ class MainVC: UIViewController {
     }
     
     @objc private func openTriangleDemo() {
-        let triangleVC = TriangleVC()
-        triangleVC.modalPresentationStyle = .fullScreen
-        present(triangleVC, animated: true)
+        self.navigationController?.pushViewController(TriangleVC(), animated: true)
     }
 }

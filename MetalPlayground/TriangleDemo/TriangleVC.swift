@@ -18,7 +18,6 @@ class TriangleVC: UIViewController {
         0.5, -0.5, 0.0
     ]
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
