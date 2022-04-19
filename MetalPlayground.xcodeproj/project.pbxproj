@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF3375DA280EBC1C001EDF1C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375D9280EBC1C001EDF1C /* Model.swift */; };
+		AF3375DC280EBCB9001EDF1C /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AF3375DB280EBCB9001EDF1C /* Shaders.metal */; };
+		AF3375DF280EE48D001EDF1C /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AF3375DD280EE48D001EDF1C /* train.mtl */; };
+		AF3375E0280EE48D001EDF1C /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = AF3375DE280EE48D001EDF1C /* train.obj */; };
+		AF3375E4280EE513001EDF1C /* ModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375E3280EE513001EDF1C /* ModelRenderer.swift */; };
+		AF3375E6280EE8BD001EDF1C /* MTKModelViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */; };
 		AFE3D28027FAF408000C76E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D27F27FAF408000C76E0 /* AppDelegate.swift */; };
 		AFE3D28227FAF408000C76E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D28127FAF408000C76E0 /* SceneDelegate.swift */; };
 		AFE3D28427FAF408000C76E0 /* TriangleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D28327FAF408000C76E0 /* TriangleVC.swift */; };
@@ -15,13 +21,19 @@
 		AFE3D29427FAF9A0000C76E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29327FAF9A0000C76E0 /* Shaders.metal */; };
 		AFE3D29727FB0770000C76E0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29627FB0770000C76E0 /* MainVC.swift */; };
 		AFE3D29A27FB0D3B000C76E0 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29927FB0D3B000C76E0 /* General.swift */; };
-		AFE3D29C27FB2101000C76E0 /* MTKViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */; };
+		AFE3D29C27FB2101000C76E0 /* MTKViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29B27FB2101000C76E0 /* MTKViewVC.swift */; };
 		AFE3D29F27FB2CFA000C76E0 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */; };
 		AFE3D2A127FB38B5000C76E0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D2A027FB38B5000C76E0 /* Shaders.metal */; };
 		AFE3D2A327FBAD00000C76E0 /* MetalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D2A227FBAD00000C76E0 /* MetalUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF3375D9280EBC1C001EDF1C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AF3375DB280EBCB9001EDF1C /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		AF3375DD280EE48D001EDF1C /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
+		AF3375DE280EE48D001EDF1C /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
+		AF3375E3280EE513001EDF1C /* ModelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRenderer.swift; sourceTree = "<group>"; };
+		AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKModelViewVC.swift; sourceTree = "<group>"; };
 		AFE3D27C27FAF408000C76E0 /* MetalPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE3D27F27FAF408000C76E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE3D28127FAF408000C76E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +44,7 @@
 		AFE3D29327FAF9A0000C76E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		AFE3D29627FB0770000C76E0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		AFE3D29927FB0D3B000C76E0 /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
-		AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewDemo.swift; sourceTree = "<group>"; };
+		AFE3D29B27FB2101000C76E0 /* MTKViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewVC.swift; sourceTree = "<group>"; };
 		AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		AFE3D2A027FB38B5000C76E0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		AFE3D2A227FBAD00000C76E0 /* MetalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalUtils.swift; sourceTree = "<group>"; };
@@ -49,6 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF3375D8280EBC05001EDF1C /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				AF3375D9280EBC1C001EDF1C /* Model.swift */,
+				AF3375DB280EBCB9001EDF1C /* Shaders.metal */,
+				AF3375DD280EE48D001EDF1C /* train.mtl */,
+				AF3375DE280EE48D001EDF1C /* train.obj */,
+				AF3375E3280EE513001EDF1C /* ModelRenderer.swift */,
+				AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */,
+			);
+			path = Train;
+			sourceTree = "<group>";
+		};
 		AFE3D27327FAF408000C76E0 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +93,7 @@
 		AFE3D27E27FAF408000C76E0 /* MetalPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				AF3375D8280EBC05001EDF1C /* Train */,
 				AFE3D29D27FB210C000C76E0 /* MTKViewDemo */,
 				AFE3D29827FB0D2D000C76E0 /* Utils */,
 				AFE3D29527FB070F000C76E0 /* TriangleDemo */,
@@ -102,7 +128,7 @@
 		AFE3D29D27FB210C000C76E0 /* MTKViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AFE3D29B27FB2101000C76E0 /* MTKViewDemo.swift */,
+				AFE3D29B27FB2101000C76E0 /* MTKViewVC.swift */,
 				AFE3D29E27FB2CFA000C76E0 /* Renderer.swift */,
 				AFE3D2A027FB38B5000C76E0 /* Shaders.metal */,
 			);
@@ -167,8 +193,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3375E0280EE48D001EDF1C /* train.obj in Resources */,
 				AFE3D28C27FAF409000C76E0 /* LaunchScreen.storyboard in Resources */,
 				AFE3D28927FAF409000C76E0 /* Assets.xcassets in Resources */,
+				AF3375DF280EE48D001EDF1C /* train.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,16 +207,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF3375DC280EBCB9001EDF1C /* Shaders.metal in Sources */,
 				AFE3D29F27FB2CFA000C76E0 /* Renderer.swift in Sources */,
 				AFE3D29A27FB0D3B000C76E0 /* General.swift in Sources */,
 				AFE3D29427FAF9A0000C76E0 /* Shaders.metal in Sources */,
-				AFE3D29C27FB2101000C76E0 /* MTKViewDemo.swift in Sources */,
+				AFE3D29C27FB2101000C76E0 /* MTKViewVC.swift in Sources */,
 				AFE3D29727FB0770000C76E0 /* MainVC.swift in Sources */,
 				AFE3D28427FAF408000C76E0 /* TriangleVC.swift in Sources */,
 				AFE3D2A127FB38B5000C76E0 /* Shaders.metal in Sources */,
 				AFE3D28027FAF408000C76E0 /* AppDelegate.swift in Sources */,
+				AF3375DA280EBC1C001EDF1C /* Model.swift in Sources */,
 				AFE3D28227FAF408000C76E0 /* SceneDelegate.swift in Sources */,
 				AFE3D2A327FBAD00000C76E0 /* MetalUtils.swift in Sources */,
+				AF3375E6280EE8BD001EDF1C /* MTKModelViewVC.swift in Sources */,
+				AF3375E4280EE513001EDF1C /* ModelRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

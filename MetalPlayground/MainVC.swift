@@ -47,6 +47,18 @@ class MainVC: UIViewController {
         return view
     }()
     
+    lazy var openMTKModelViewButton: UILabel = {
+        let view = createButton(text: "MTKView Model Demo")
+        
+        let openModelTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(self.openMTKModelViewDemo))
+        view.addGestureRecognizer(openModelTapGesture)
+        view.isUserInteractionEnabled = true
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +98,7 @@ class MainVC: UIViewController {
     private func setupButtons() {
         stackView.addArrangedSubview(openTriangleButton)
         stackView.addArrangedSubview(openMTKViewButton)
+        stackView.addArrangedSubview(openMTKModelViewButton)
     }
     
     private func createButton(text: String) -> UILabel {
@@ -112,5 +125,9 @@ class MainVC: UIViewController {
     
     @objc private func openMTKViewDemo() {
         self.navigationController?.pushViewController(MTKViewVC(), animated: true)
+    }
+    
+    @objc private func openMTKModelViewDemo() {
+        self.navigationController?.pushViewController(MTKModelViewVC(), animated: true)
     }
 }
