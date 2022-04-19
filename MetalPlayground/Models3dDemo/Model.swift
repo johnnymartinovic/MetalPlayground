@@ -13,6 +13,8 @@ class Model {
     let mdlMeshes: [MDLMesh]
     let mtkMeshes: [MTKMesh]
     
+    var transform = Transform()
+    
     init(name: String) {
         let assetUrl = Bundle.main.url(forResource: name, withExtension: "obj")
         let allocator = MTKMeshBufferAllocator(device: ModelRenderer.device)

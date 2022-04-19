@@ -9,6 +9,7 @@ class ModelRenderer: NSObject {
     let pipelineState: MTLRenderPipelineState
     
     let train: Model
+    let tree: Model
     
     init(view: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),
@@ -21,6 +22,12 @@ class ModelRenderer: NSObject {
         pipelineState = ModelRenderer.createPipelineState()
         
         train = Model(name: "train")
+        train.transform.position = [0.4, 0, 0]
+        train.transform.scale = 0.5
+        
+        tree = Model(name: "treefir")
+        tree.transform.position = [-0.6, 0, 0.3]
+        tree.transform.scale = 0.5
         
         super.init()
     }
@@ -57,27 +64,35 @@ extension ModelRenderer: MTKViewDelegate {
         commandEncoder.setRenderPipelineState(pipelineState)
         
         
-        // draw call
-        for mtkMesh in train.mtkMeshes {
-            for vertexBuffer in mtkMesh.vertexBuffers {
-                commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: 0)
-                
-                var color = 0
-                
-                for submesh in mtkMesh.submeshes {
-                    commandEncoder.setVertexBytes(&color, length: MemoryLayout<Int>.stride, index: 11)
+        let models = [tree, train]
+        for model in models {
+            var modelMatrix = model.transform.matrix
+            commandEncoder.setVertexBytes(&modelMatrix,
+                                          length: MemoryLayout<float4x4>.stride,
+                                          index: 21)
+            
+            for mtkMesh in model.mtkMeshes {
+                for vertexBuffer in mtkMesh.vertexBuffers {
+                    commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: 0)
                     
-                    commandEncoder.drawIndexedPrimitives(
-                        type: .triangle,
-                        indexCount: submesh.indexCount,
-                        indexType: submesh.indexType,
-                        indexBuffer: submesh.indexBuffer.buffer,
-                        indexBufferOffset: submesh.indexBuffer.offset)
+                    var color = 0
                     
-                    color += 1
+                    for submesh in mtkMesh.submeshes {
+                        commandEncoder.setVertexBytes(&color, length: MemoryLayout<Int>.stride, index: 11)
+                        
+                        commandEncoder.drawIndexedPrimitives(
+                            type: .triangle,
+                            indexCount: submesh.indexCount,
+                            indexType: submesh.indexType,
+                            indexBuffer: submesh.indexBuffer.buffer,
+                            indexBufferOffset: submesh.indexBuffer.offset)
+                        
+                        color += 1
+                    }
                 }
             }
         }
+        
         
         commandEncoder.endEncoding()
         

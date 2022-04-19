@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		AF3375DA280EBC1C001EDF1C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375D9280EBC1C001EDF1C /* Model.swift */; };
 		AF3375DC280EBCB9001EDF1C /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AF3375DB280EBCB9001EDF1C /* Shaders.metal */; };
-		AF3375DF280EE48D001EDF1C /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AF3375DD280EE48D001EDF1C /* train.mtl */; };
-		AF3375E0280EE48D001EDF1C /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = AF3375DE280EE48D001EDF1C /* train.obj */; };
 		AF3375E4280EE513001EDF1C /* ModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375E3280EE513001EDF1C /* ModelRenderer.swift */; };
 		AF3375E6280EE8BD001EDF1C /* MTKModelViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */; };
+		AF3375E8280F66C3001EDF1C /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375E7280F66C3001EDF1C /* MathLibrary.swift */; };
+		AF3375EE280F6804001EDF1C /* treefir.obj in Resources */ = {isa = PBXBuildFile; fileRef = AF3375EA280F6804001EDF1C /* treefir.obj */; };
+		AF3375EF280F6804001EDF1C /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = AF3375EB280F6804001EDF1C /* train.obj */; };
+		AF3375F0280F6804001EDF1C /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AF3375EC280F6804001EDF1C /* train.mtl */; };
+		AF3375F1280F6804001EDF1C /* treefir.mtl in Resources */ = {isa = PBXBuildFile; fileRef = AF3375ED280F6804001EDF1C /* treefir.mtl */; };
+		AF3375F3280F68A5001EDF1C /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3375F2280F68A5001EDF1C /* Transform.swift */; };
 		AFE3D28027FAF408000C76E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D27F27FAF408000C76E0 /* AppDelegate.swift */; };
 		AFE3D28227FAF408000C76E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D28127FAF408000C76E0 /* SceneDelegate.swift */; };
 		AFE3D28427FAF408000C76E0 /* TriangleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE3D28327FAF408000C76E0 /* TriangleVC.swift */; };
@@ -30,10 +34,14 @@
 /* Begin PBXFileReference section */
 		AF3375D9280EBC1C001EDF1C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AF3375DB280EBCB9001EDF1C /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		AF3375DD280EE48D001EDF1C /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
-		AF3375DE280EE48D001EDF1C /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
 		AF3375E3280EE513001EDF1C /* ModelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRenderer.swift; sourceTree = "<group>"; };
 		AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKModelViewVC.swift; sourceTree = "<group>"; };
+		AF3375E7280F66C3001EDF1C /* MathLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		AF3375EA280F6804001EDF1C /* treefir.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.obj; sourceTree = "<group>"; };
+		AF3375EB280F6804001EDF1C /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
+		AF3375EC280F6804001EDF1C /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
+		AF3375ED280F6804001EDF1C /* treefir.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.mtl; sourceTree = "<group>"; };
+		AF3375F2280F68A5001EDF1C /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		AFE3D27C27FAF408000C76E0 /* MetalPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE3D27F27FAF408000C76E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE3D28127FAF408000C76E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,17 +69,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF3375D8280EBC05001EDF1C /* Train */ = {
+		AF3375D8280EBC05001EDF1C /* Models3dDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AF3375E9280F67EB001EDF1C /* Models */,
 				AF3375D9280EBC1C001EDF1C /* Model.swift */,
 				AF3375DB280EBCB9001EDF1C /* Shaders.metal */,
-				AF3375DD280EE48D001EDF1C /* train.mtl */,
-				AF3375DE280EE48D001EDF1C /* train.obj */,
 				AF3375E3280EE513001EDF1C /* ModelRenderer.swift */,
 				AF3375E5280EE8BD001EDF1C /* MTKModelViewVC.swift */,
+				AF3375F2280F68A5001EDF1C /* Transform.swift */,
 			);
-			path = Train;
+			path = Models3dDemo;
+			sourceTree = "<group>";
+		};
+		AF3375E9280F67EB001EDF1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF3375EC280F6804001EDF1C /* train.mtl */,
+				AF3375EB280F6804001EDF1C /* train.obj */,
+				AF3375ED280F6804001EDF1C /* treefir.mtl */,
+				AF3375EA280F6804001EDF1C /* treefir.obj */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AFE3D27327FAF408000C76E0 = {
@@ -93,7 +112,7 @@
 		AFE3D27E27FAF408000C76E0 /* MetalPlayground */ = {
 			isa = PBXGroup;
 			children = (
-				AF3375D8280EBC05001EDF1C /* Train */,
+				AF3375D8280EBC05001EDF1C /* Models3dDemo */,
 				AFE3D29D27FB210C000C76E0 /* MTKViewDemo */,
 				AFE3D29827FB0D2D000C76E0 /* Utils */,
 				AFE3D29527FB070F000C76E0 /* TriangleDemo */,
@@ -121,6 +140,7 @@
 			children = (
 				AFE3D29927FB0D3B000C76E0 /* General.swift */,
 				AFE3D2A227FBAD00000C76E0 /* MetalUtils.swift */,
+				AF3375E7280F66C3001EDF1C /* MathLibrary.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -193,10 +213,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF3375E0280EE48D001EDF1C /* train.obj in Resources */,
+				AF3375EE280F6804001EDF1C /* treefir.obj in Resources */,
+				AF3375F0280F6804001EDF1C /* train.mtl in Resources */,
+				AF3375EF280F6804001EDF1C /* train.obj in Resources */,
 				AFE3D28C27FAF409000C76E0 /* LaunchScreen.storyboard in Resources */,
 				AFE3D28927FAF409000C76E0 /* Assets.xcassets in Resources */,
-				AF3375DF280EE48D001EDF1C /* train.mtl in Resources */,
+				AF3375F1280F6804001EDF1C /* treefir.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +235,7 @@
 				AFE3D29427FAF9A0000C76E0 /* Shaders.metal in Sources */,
 				AFE3D29C27FB2101000C76E0 /* MTKViewVC.swift in Sources */,
 				AFE3D29727FB0770000C76E0 /* MainVC.swift in Sources */,
+				AF3375F3280F68A5001EDF1C /* Transform.swift in Sources */,
 				AFE3D28427FAF408000C76E0 /* TriangleVC.swift in Sources */,
 				AFE3D2A127FB38B5000C76E0 /* Shaders.metal in Sources */,
 				AFE3D28027FAF408000C76E0 /* AppDelegate.swift in Sources */,
@@ -221,6 +244,7 @@
 				AFE3D2A327FBAD00000C76E0 /* MetalUtils.swift in Sources */,
 				AF3375E6280EE8BD001EDF1C /* MTKModelViewVC.swift in Sources */,
 				AF3375E4280EE513001EDF1C /* ModelRenderer.swift in Sources */,
+				AF3375E8280F66C3001EDF1C /* MathLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
